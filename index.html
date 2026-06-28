@@ -29,7 +29,7 @@
   <meta property="og:description" content="A reliable alternative to home tuition with monitored live classes.">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="refs/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="refs/logo.svg" type="image/svg+xml">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 
@@ -70,8 +70,8 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 12px 20px; max-width: 1120px; margin: auto; gap: 12px; flex-wrap: wrap;
     }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; color: var(--navy); letter-spacing: .5px; }
-    .logo img { width: 34px; height: 34px; }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 48px; width: auto; display: block; }
     .nav-help { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-help .icon {
       width: 42px; height: 42px; border-radius: 50%;
@@ -198,7 +198,7 @@
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="inner">
-    <div class="logo"><img src="refs/favicon.svg" alt="Offtute logo"> OFFTUTE</div>
+    <div class="logo"><img src="refs/logo.svg" alt="Offtute logo"></div>
     <a class="nav-help" href="tel:+918850885578">
       <span class="icon">📞</span>
       <span><small>Need help? Talk to our team</small><span class="phone">8850 885 578</span></span>
@@ -212,11 +212,6 @@
     <div>
       <h1>Power up your child’s learning with <span class="accent">IITian tutors</span></h1>
       <p class="lead">Personalized, fully monitored live classes — a trusted alternative to home tuition. Track attendance, performance and improvement, all in one place.</p>
-      <div class="stats">
-        <div><strong>500+</strong><span>Students taught</span></div>
-        <div><strong>50+</strong><span>Expert tutors</span></div>
-        <div><strong>4.9★</strong><span>Parent rating</span></div>
-      </div>
     </div>
 
     <div class="hero-photo">
@@ -236,12 +231,14 @@
     <div class="finder">
       <div class="finder-row">
         <div>
-          <label>Your Name</label>
-          <input id="fName" placeholder="Parent / student name">
+          <label>Student Name</label>
+          <input id="fName" placeholder="Student Name">
         </div>
         <div>
           <label>Phone Number</label>
-          <input id="fPhone" type="tel" placeholder="+91 phone number">
+          <input id="fPhone" type="tel" inputmode="numeric" maxlength="10"
+                 pattern="[6-9][0-9]{9}" placeholder="10-digit mobile number"
+                 oninput="this.value=this.value.replace(/[^0-9]/g,'')">
         </div>
       </div>
 
@@ -387,7 +384,11 @@
     const phone = document.getElementById('fPhone').value.trim();
     const subjects = Array.from(selectedSubjects);
 
-    if (!phone) { alert('Please enter your phone number.'); return; }
+    if (!/^[6-9][0-9]{9}$/.test(phone)) {
+      alert('Please enter a valid 10-digit mobile number.');
+      document.getElementById('fPhone').focus();
+      return;
+    }
 
     const payload = {
       _subject: 'New tutor enquiry — Offtute',
