@@ -1,352 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BASIC -->
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1X6EFM0BMN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-1X6EFM0BMN');
-
     function trackWhatsApp() {
-      gtag('event', 'whatsapp_click', {
-        event_category: 'engagement',
-        event_label: 'WhatsApp CTA'
-      });
+      gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: 'WhatsApp CTA' });
     }
   </script>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Online Tutors by IITians | Better Than Home Tuition</title>
 
   <!-- SEO -->
   <meta name="description" content="Verified online tutors by IITians for school students. A trusted alternative to home tuition with live monitored classes and quality assurance.">
-  <meta name="keywords" content="online tutor india, IIT tutor, mumbai tutor, delhi tutor, india tutor, tutor,  home tuition alternative, cbse tuition online, maths tutor, science tutor">
+  <meta name="keywords" content="online tutor india, IIT tutor, home tuition alternative, cbse tuition online, maths tutor, science tutor">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://yourdomain.com">
+  <link rel="canonical" href="https://offtute.com">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Trusted Online Tutors by IITians">
   <meta property="og:description" content="A reliable alternative to home tuition with monitored live classes.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1588072432836-e10032774350">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- FAVICON -->
   <link rel="icon" href="refs/favicon.svg" type="image/svg+xml">
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --navy: #0c2340;
+      --navy-2: #143055;
+      --blue: #2f74ff;
+      --blue-dark: #1e3c72;
+      --gold: #f5c518;
+      --ink: #2b3445;
+      --muted: #6b7280;
+      --bg: #f4f6fb;
+      --card-shadow: 0 10px 30px rgba(12,35,64,0.10);
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f4f6fb;
-      color: #333;
-    }
-
-    header {
-      min-height: 90vh;
-      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("https://images.unsplash.com/photo-1588072432836-e10032774350");
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-    }
-
-    header h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    header p {
-      max-width: 750px;
-      margin: auto;
-      font-size: 18px;
+      font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
       line-height: 1.6;
     }
 
-    /* Scroll signifier */
-    .scroll-signifier {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 26px;
-      animation: bounce 2s infinite;
-      cursor: pointer;
-    }
+    h1, h2, h3 { line-height: 1.2; }
 
-    @keyframes bounce {
-      0%,20%,50%,80%,100% { transform: translate(-50%,0); }
-      40% { transform: translate(-50%,-10px); }
-      60% { transform: translate(-50%,-5px); }
-    }
+    .container { max-width: 1120px; margin: auto; padding: 0 20px; }
 
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .choice {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 30px;
-    }
-
-    .choice-card {
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      position: sticky; top: 0; z-index: 100;
       background: #fff;
-      padding: 40px 30px;
-      border-radius: 12px;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 14px rgba(12,35,64,0.07);
     }
-
-    .choice-card h2 {
-      color: #1e3c72;
-      margin-bottom: 10px;
+    .navbar .inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 20px; max-width: 1120px; margin: auto; gap: 12px; flex-wrap: wrap;
     }
-
-    form {
-      display: none;
-      background: #fff;
-      padding: 35px;
-      border-radius: 12px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.1);
-      max-width: 700px;
-      margin: auto;
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 22px; color: var(--navy); letter-spacing: .5px; }
+    .logo img { width: 34px; height: 34px; }
+    .nav-help { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-help .icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #eaf1ff; color: var(--blue);
+      display: grid; place-items: center; font-size: 20px;
     }
+    .nav-help small { display: block; color: var(--muted); font-size: 12px; }
+    .nav-help .phone { color: var(--navy); font-size: 18px; font-weight: 700; }
 
-    form.active {
-      display: block;
-    }
-
-    label {
-      margin-top: 15px;
-      display: block;
-      font-weight: 600;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 11px;
-      margin-top: 6px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 14px;
-      background: #1e3c72;
+    /* ---------- HERO ---------- */
+    .hero {
+      background:
+        radial-gradient(1200px 500px at 80% -10%, rgba(47,116,255,.35), transparent 60%),
+        linear-gradient(160deg, var(--navy), var(--navy-2));
       color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
+      padding: 70px 0 80px;
     }
-
-    /* Testimonials */
-    .testimonial-section {
-      background: #111;
-      padding: 70px 20px;
+    .hero .grid {
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center;
     }
+    .hero h1 { font-size: 44px; font-weight: 800; margin: 0 0 16px; }
+    .hero h1 .accent { color: var(--gold); }
+    .hero p.lead { font-size: 18px; opacity: .92; max-width: 520px; margin: 0 0 26px; }
+    .hero .stats { display: flex; gap: 34px; flex-wrap: wrap; }
+    .hero .stats strong { display: block; font-size: 28px; font-weight: 800; }
+    .hero .stats span { font-size: 13px; opacity: .8; }
 
-    .testimonial-section h2 {
-      color: #fff;
-      text-align: center;
-      margin-bottom: 40px;
+    /* hero card */
+    .lead-card {
+      background: #fff; color: var(--ink);
+      border-radius: 16px; padding: 28px;
+      box-shadow: 0 20px 45px rgba(0,0,0,.30);
     }
+    .lead-card h3 { margin: 0 0 4px; color: var(--blue-dark); font-size: 22px; }
+    .lead-card .sub { margin: 0 0 18px; font-size: 14px; color: var(--muted); }
 
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 30px;
-      max-width: 1100px;
-      margin: auto;
+    /* hero photo */
+    .hero-photo img { width: 100%; border-radius: 16px; display: block; box-shadow: 0 20px 45px rgba(0,0,0,.30); }
+
+    label { font-weight: 600; font-size: 14px; display: block; margin: 14px 0 6px; }
+    input, select, textarea {
+      width: 100%; padding: 12px 13px; border: 1px solid #d8dee9;
+      border-radius: 10px; font-family: inherit; font-size: 15px; background: #fff;
     }
+    input:focus, select:focus, textarea:focus { outline: 2px solid #bcd0ff; border-color: var(--blue); }
 
-    .testimonial-card {
-      background: #fff;
-      padding: 25px;
-      border-radius: 10px;
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border: none; cursor: pointer; font-family: inherit; font-weight: 600;
+      padding: 14px 26px; border-radius: 10px; font-size: 16px; text-decoration: none;
     }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-primary:hover { background: #1f63ee; }
+    .btn-block { width: 100%; margin-top: 22px; }
 
-    .testimonial-card img {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      object-fit: cover;
+    /* ---------- SECTION HEADINGS ---------- */
+    section.block { padding: 64px 0; }
+    .section-title { text-align: center; font-size: 32px; font-weight: 800; color: var(--navy); margin: 0 0 8px; }
+    .section-sub { text-align: center; color: var(--muted); margin: 0 0 38px; }
+
+    /* ---------- FINDER ---------- */
+    .finder {
+      background: #fff; border-radius: 18px; box-shadow: var(--card-shadow);
+      padding: 32px; max-width: 900px; margin: auto;
     }
-
-    .testimonial-card p {
-      font-family: 'Dancing Script', cursive;
-      font-size: 20px;
-      color: #000;
+    .finder-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+    .chip {
+      border: 1.5px solid #d8dee9; background: #fff; color: var(--ink);
+      padding: 9px 16px; border-radius: 999px; cursor: pointer; font-size: 14px;
+      font-weight: 500; user-select: none; transition: .15s;
     }
+    .chip:hover { border-color: var(--blue); }
+    .chip.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+    .chip.disabled { opacity: .4; pointer-events: none; }
+    .hint { font-size: 13px; color: var(--muted); margin-top: 8px; }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      font-size: 14px;
-      color: #777;
+    /* ---------- WHY US ---------- */
+    .features { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 24px; }
+    .feature {
+      background: #fff; border-radius: 14px; padding: 28px 24px; box-shadow: var(--card-shadow);
     }
+    .feature .ico { font-size: 30px; }
+    .feature h3 { margin: 12px 0 8px; font-size: 19px; color: var(--navy); }
+    .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
+    /* ---------- TOPPERS ---------- */
+    .toppers { background: var(--navy); color: #fff; }
+    .toppers .banner { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+    .toppers h2 { font-size: 46px; font-weight: 800; margin: 0; }
+    .toppers h2 .accent { color: var(--gold); display: block; }
+    .toppers img { width: 100%; border-radius: 14px; box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testimonials { background: #0a1a30; }
+    .t-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 26px; }
+    .t-card { background: #fff; border-radius: 14px; padding: 26px; }
+    .t-card img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+    .t-card p { font-family: 'Dancing Script', cursive; font-size: 20px; color: #1a1a1a; margin: 14px 0; }
+    .t-card strong { color: var(--blue-dark); }
+
+    /* ---------- FOOTER ---------- */
+    footer { text-align: center; padding: 28px; font-size: 14px; color: var(--muted); }
+
+    /* ---------- WHATSAPP ---------- */
     .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
+      position: fixed; bottom: 22px; right: 22px; z-index: 200;
+      background: #25D366; color: #fff; padding: 14px 20px; border-radius: 50px;
+      text-decoration: none; font-weight: 600; box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 860px) {
+      .hero .grid, .toppers .banner { grid-template-columns: 1fr; gap: 30px; }
+      .hero h1 { font-size: 34px; }
+      .toppers h2 { font-size: 34px; }
+      .finder-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div>
-    <h1>Trusted Online Tutors by IITians</h1>
-    <p>India’s most trusted way to learn — monitored live classes with the best personalized tutors.</p>
-
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="inner">
+    <div class="logo"><img src="refs/favicon.svg" alt="Offtute logo"> OFFTUTE</div>
+    <a class="nav-help" href="tel:+918850885578">
+      <span class="icon">📞</span>
+      <span><small>Need help? Talk to our team</small><span class="phone">8850 885 578</span></span>
+    </a>
   </div>
-  <div class="scroll-signifier" onmouseover="scrollDown()">▼</div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container grid">
+    <div>
+      <h1>Power up your child’s learning with <span class="accent">IITian tutors</span></h1>
+      <p class="lead">Personalized, fully monitored live classes — a trusted alternative to home tuition. Track attendance, performance and improvement, all in one place.</p>
+      <div class="stats">
+        <div><strong>500+</strong><span>Students taught</span></div>
+        <div><strong>50+</strong><span>Expert tutors</span></div>
+        <div><strong>4.9★</strong><span>Parent rating</span></div>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <!-- Replace refs/hero-student.jpg to change this image -->
+      <img src="refs/hero-student.jpg" alt="Student learning online with Offtute"
+           onerror="this.src='https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=1000'">
+    </div>
+  </div>
 </header>
 
-<section>
-  <div class="choice">
-    <div class="choice-card" onclick="showForm('Student')">
-      <h2>For Students & Parents</h2>
-      <p>Find a trusted tutor for your child</p>
-    </div>
-    <div class="choice-card" onclick="showForm('Tutor')">
-      <h2>For Tutors</h2>
-      <p>Apply to teach students online</p>
-    </div>
-  </div>
-</section>
+<!-- FINDER -->
+<section class="block" id="findTutor">
+  <div class="container">
+    <h2 class="section-title">Find the right tutor</h2>
+    <p class="section-sub">Pick your board, class and subjects — we’ll match you instantly.</p>
 
-<section>
-  <form id="leadForm" onsubmit="submitForm(event)">
-    <h2 id="formTitle"></h2>
-    <input type="hidden" name="role" id="roleInput">
+    <div class="finder">
+      <div class="finder-row">
+        <div>
+          <label>Your Name</label>
+          <input id="fName" placeholder="Parent / student name">
+        </div>
+        <div>
+          <label>Phone Number</label>
+          <input id="fPhone" type="tel" placeholder="+91 phone number">
+        </div>
+      </div>
 
-    <label>Full Name</label>
-    <input name="name" required>
+      <div class="finder-row" style="margin-top:18px;">
+        <div>
+          <label>Board</label>
+          <select id="fBoard">
+            <option value="">Select board</option>
+            <option>CBSE</option>
+            <option>ICSE</option>
+            <option>State Board</option>
+            <option>IB / IGCSE</option>
+          </select>
+        </div>
+        <div>
+          <label>Class</label>
+          <select id="fClass" onchange="renderSubjects()">
+            <option value="">Select class</option>
+            <option>Class 6</option>
+            <option>Class 7</option>
+            <option>Class 8</option>
+            <option>Class 9</option>
+            <option>Class 10</option>
+            <option>Class 11</option>
+            <option>Class 12</option>
+          </select>
+        </div>
+      </div>
 
-    <label>Contact Number</label>
-    <input name="phone" required>
+      <label style="margin-top:20px;">Subjects <span style="font-weight:400;color:var(--muted)">(tap to select one or more)</span></label>
+      <div class="chips" id="subjectChips"></div>
+      <p class="hint" id="subjectHint">Select a class first to see available subjects.</p>
 
-    <label>Email</label>
-    <input name="email">
-
-    <label>Class / Subject</label>
-    <input name="class">
-
-    <label>Have Phone/Laptop?</label>
-    <input name="device">
-
-    <label>Preferred Contact Time</label>
-    <input name="time">
-
-    <label>Additional Info</label>
-    <textarea name="message"></textarea>
-
-    <button type="submit">Submit</button>
-  </form>
-</section>
-
-<section class="testimonial-section">
-  <h2>What Parents Say</h2>
-  <div class="testimonial-grid">
-    <div class="testimonial-card">
-      <img src="./refs/sunilgupta.png" alt="Parent testimonial">
-      <p>"We really appreciate how the classes are properly tracked. We receive regular updates on attendance, performance, and areas of improvement. Over the past few months, we can clearly see a steady learning curve in our child.”</p>
-      <strong>— Sunil Gupta, Delhi</strong>
-    </div>
-    <div class="testimonial-card">
-      <img src="./refs/AnitaPatil.jpeg" alt="Parent testimonial">
-      <p>“What sets Offtute apart from regular tuition is the continuous tracking of progress. Weak areas are identified early, and the teacher works on them patiently. The improvement in understanding and confidence has been very noticeable.”</p>
-      <strong>— Anita Patil, Mumbai</strong>
-    </div>
-    <div class="testimonial-card">
-      <img src="./refs/AmanAg.jpg" alt="Parent testimonial">
-      <p>“The learning is not random here. Every class is monitored, and progress is reviewed regularly. Because of this, our child’s basics have become much stronger and the improvement has been consistent.”</p>
-      <strong>— Aman Agarwal, Hyderabad</strong>
+      <button class="btn btn-primary btn-block" type="button" onclick="finderSubmit()">Submit →</button>
     </div>
   </div>
 </section>
 
-<footer>
-  © 2026 | OFFTUTE | Online Tutors by IITians — Serving students across India
-</footer>
+<!-- WHY US -->
+<section class="block" style="background:#fff;">
+  <div class="container">
+    <h2 class="section-title">Why parents choose Offtute</h2>
+    <p class="section-sub">Not just another tuition — a monitored, accountable learning system.</p>
+    <div class="features">
+      <div class="feature"><div class="ico">🎓</div><h3>IITian Tutors</h3><p>Every tutor is verified and trained — top-tier teaching your child can trust.</p></div>
+      <div class="feature"><div class="ico">📊</div><h3>Tracked Progress</h3><p>Regular updates on attendance, performance and weak areas — no guesswork.</p></div>
+      <div class="feature"><div class="ico">👀</div><h3>Monitored Classes</h3><p>Every live class is supervised for quality, unlike unchecked home tuition.</p></div>
+      <div class="feature"><div class="ico">🏠</div><h3>Learn From Home</h3><p>Safe, flexible online classes — no travel, no compromise on quality.</p></div>
+    </div>
+  </div>
+</section>
 
-<a id="whatsappBtn"
-   class="whatsapp"
-   target="_blank"
+<!-- TOPPERS -->
+<section class="block toppers">
+  <div class="container banner">
+    <div>
+      <h2>inspiring<br>stories of our<br><span class="accent">toppers</span></h2>
+      <a class="btn btn-primary" style="margin-top:28px;" href="#findTutor">view our rankers ↗</a>
+    </div>
+    <div>
+      <!-- Replace refs/topper.jpg to change the featured topper -->
+      <img src="refs/topper.jpg" alt="Offtute topper result"
+           onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000'">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="block testimonials">
+  <div class="container">
+    <h2 class="section-title" style="color:#fff;">What parents say</h2>
+    <p class="section-sub" style="color:#9fb3cc;">Real feedback from families learning with Offtute.</p>
+    <div class="t-grid">
+      <div class="t-card">
+        <img src="refs/sunilgupta.png" alt="Parent">
+        <p>"We really appreciate how the classes are properly tracked. We receive regular updates on attendance, performance and improvement. Over the past few months, we can clearly see a steady learning curve in our child."</p>
+        <strong>— Sunil Gupta, Delhi</strong>
+      </div>
+      <div class="t-card">
+        <img src="refs/AnitaPatil.jpeg" alt="Parent">
+        <p>"What sets Offtute apart is the continuous tracking of progress. Weak areas are identified early, and the teacher works on them patiently. The improvement in confidence has been very noticeable."</p>
+        <strong>— Anita Patil, Mumbai</strong>
+      </div>
+      <div class="t-card">
+        <img src="refs/AmanAg.jpg" alt="Parent">
+        <p>"The learning is not random here. Every class is monitored, and progress is reviewed regularly. Because of this, our child’s basics have become much stronger and the improvement has been consistent."</p>
+        <strong>— Aman Agarwal, Hyderabad</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 | OFFTUTE | Online Tutors by IITians — Serving students across India</footer>
+
+<a id="whatsappBtn" class="whatsapp" target="_blank"
    href="https://wa.me/918850885578?text=Hello%20I%20am%20interested%20in%20online%20tuition"
-   onclick="trackWhatsApp()">
-  💬 Chat on WhatsApp
-</a>
-
+   onclick="trackWhatsApp()">💬 Chat on WhatsApp</a>
 
 <script>
-  function scrollDown() {
-    window.scrollBy({ top: window.innerHeight * 0.9, behavior: 'smooth' });
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/offtute@gmail.com';
+  const WA = '918850885578';
+
+  /* Subjects depend on class:
+     6–8  -> Science is one combined subject
+     9–12 -> Physics, Chemistry, Biology are separate (PCB) */
+  const SUBJECTS_JUNIOR = ['Mathematics', 'Science', 'English', 'Social Science', 'Hindi'];
+  const SUBJECTS_SENIOR = ['Mathematics', 'Physics', 'Chemistry', 'Biology', 'English', 'Computer Science'];
+
+  let selectedSubjects = new Set();
+
+  function renderSubjects() {
+    const cls = document.getElementById('fClass').value;
+    const chips = document.getElementById('subjectChips');
+    const hint = document.getElementById('subjectHint');
+    selectedSubjects.clear();
+
+    if (!cls) {
+      chips.innerHTML = '';
+      hint.textContent = 'Select a class first to see available subjects.';
+      return;
+    }
+
+    const num = parseInt(cls.replace(/\D/g, ''), 10);
+    const list = num <= 8 ? SUBJECTS_JUNIOR : SUBJECTS_SENIOR;
+    hint.textContent = num <= 8
+      ? 'Science is combined for Class 6–8.'
+      : 'Physics, Chemistry and Biology are separate for Class 9–12.';
+
+    chips.innerHTML = list.map(s =>
+      `<span class="chip" onclick="toggleSubject(this,'${s}')">${s}</span>`
+    ).join('');
   }
 
-  function showForm(role) {
-    document.getElementById('leadForm').classList.add('active');
-    document.getElementById('roleInput').value = role;
-    document.getElementById('formTitle').innerText =
-      role === 'Tutor' ? 'Apply as Tutor' : 'Find a Tutor for Your Child';
-
-    const msg = role === 'Tutor'
-      ? 'Hello, I want to apply as a tutor.'
-      : 'Hello, I am looking for a tutor for my child.';
-    document.getElementById('whatsappBtn').href =
-      'https://wa.me/918850885578?text=' + encodeURIComponent(msg);
-
-    document.getElementById('leadForm').scrollIntoView({ behavior: 'smooth' });
+  function toggleSubject(el, subject) {
+    if (selectedSubjects.has(subject)) { selectedSubjects.delete(subject); el.classList.remove('active'); }
+    else { selectedSubjects.add(subject); el.classList.add('active'); }
   }
 
-  function submitForm(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    fetch('https://script.google.com/macros/s/AKfycbxG7EqmKi0nnq8eW2a2CRgcHO9o-OpYW5YXSACShwj7Ya2L8AptN_YWbXo3Nqs06yTnyQ/exec', {
+  function finderSubmit() {
+    const board = document.getElementById('fBoard').value;
+    const cls = document.getElementById('fClass').value;
+    const name = document.getElementById('fName').value.trim();
+    const phone = document.getElementById('fPhone').value.trim();
+    const subjects = Array.from(selectedSubjects);
+
+    if (!phone) { alert('Please enter your phone number.'); return; }
+
+    const payload = {
+      _subject: 'New tutor enquiry — Offtute',
+      _template: 'table',
+      Name: name,
+      Phone: phone,
+      Board: board,
+      Class: cls,
+      Subjects: subjects.join(', '),
+      Source: 'Find a tutor form'
+    };
+
+    fetch(FORM_ENDPOINT, {
       method: 'POST',
-      body: formData
-    }).then(() => {
-      gtag('event', 'lead_form_submit', {
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(r => r.json())
+    .then(() => {
+      gtag('event', 'finder_submit', {
         event_category: 'conversion',
-        event_label: document.getElementById('roleInput').value
+        event_label: [board, cls, subjects.join('/')].filter(Boolean).join(' | ')
       });
-
-      alert('Thank you! We will contact you shortly.');
-      e.target.reset();
-    });
+      alert('Thank you! We will contact you shortly to match the right tutor.');
+      document.getElementById('fName').value = '';
+      document.getElementById('fPhone').value = '';
+    })
+    .catch(() => alert('Sorry, something went wrong. Please try again or WhatsApp us.'));
   }
+
 </script>
 
 <!-- STRUCTURED DATA -->
@@ -354,7 +425,8 @@
 {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  "name": "Online Tutors by IITians",
+  "name": "Offtute — Online Tutors by IITians",
+  "telephone": "+91-8850885578",
   "address": { "@type": "PostalAddress", "addressCountry": "IN" }
 }
 </script>
