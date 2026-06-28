@@ -29,7 +29,7 @@
   <meta property="og:description" content="A reliable alternative to home tuition with monitored live classes.">
   <meta property="og:type" content="website">
 
-  <link rel="icon" href="refs/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="refs/logo.png" type="image/png">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 
@@ -159,11 +159,17 @@
     .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
     /* ---------- TOPPERS ---------- */
-    .toppers { background: var(--navy); color: #fff; }
+    .toppers {
+      background: linear-gradient(135deg, #0c3325 0%, #14492f 55%, #1a573c 100%);
+      color: #fff;
+    }
     .toppers .banner { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
     .toppers h2 { font-size: 46px; font-weight: 800; margin: 0; }
     .toppers h2 .accent { color: var(--gold); display: block; }
-    .toppers img { width: 100%; border-radius: 14px; box-shadow: 0 18px 40px rgba(0,0,0,.4); }
+    .toppers img {
+      width: 100%; display: block; border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(0,0,0,.45);
+    }
 
     /* ---------- TESTIMONIALS ---------- */
     .testimonials { background: #0a1a30; }
@@ -198,7 +204,7 @@
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="inner">
-    <div class="logo"><img src="refs/logo.svg" alt="Offtute logo"></div>
+    <div class="logo"><img src="refs/logo.png" alt="Offtute logo"></div>
     <a class="nav-help" href="tel:+918850885578">
       <span class="icon">📞</span>
       <span><small>Need help? Talk to our team</small><span class="phone">8850 885 578</span></span>
@@ -210,7 +216,7 @@
 <header class="hero">
   <div class="container grid">
     <div>
-      <h1>Power up your child’s learning with <span class="accent">IITian tutors</span></h1>
+      <h1>Power up your child’s learning with <span class="accent">tutors validated by IITians</span></h1>
       <p class="lead">Personalized, fully monitored live classes — a trusted alternative to home tuition. Track attendance, performance and improvement, all in one place.</p>
     </div>
 
@@ -283,7 +289,7 @@
     <h2 class="section-title">Why parents choose Offtute</h2>
     <p class="section-sub">Not just another tuition — a monitored, accountable learning system.</p>
     <div class="features">
-      <div class="feature"><div class="ico">🎓</div><h3>IITian Tutors</h3><p>Every tutor is verified and trained — top-tier teaching your child can trust.</p></div>
+      <div class="feature"><div class="ico">🎓</div><h3>Tutors Validated by IITians</h3><p>Every tutor is screened and validated by IITians — top-tier teaching your child can trust.</p></div>
       <div class="feature"><div class="ico">📊</div><h3>Tracked Progress</h3><p>Regular updates on attendance, performance and weak areas — no guesswork.</p></div>
       <div class="feature"><div class="ico">👀</div><h3>Monitored Classes</h3><p>Every live class is supervised for quality, unlike unchecked home tuition.</p></div>
       <div class="feature"><div class="ico">🏠</div><h3>Learn From Home</h3><p>Safe, flexible online classes — no travel, no compromise on quality.</p></div>
@@ -296,12 +302,10 @@
   <div class="container banner">
     <div>
       <h2>inspiring<br>stories of our<br><span class="accent">toppers</span></h2>
-      <a class="btn btn-primary" style="margin-top:28px;" href="#findTutor">view our rankers ↗</a>
     </div>
     <div>
-      <!-- Replace refs/topper.jpg to change the featured topper -->
-      <img src="refs/topper.jpg" alt="Offtute topper result"
-           onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1000'">
+      <!-- Swap refs/janishaformal.jpg to change the featured topper card -->
+      <img src="refs/janishaformal.jpg" alt="Janisha Misri — IIT Kharagpur, JEE Advanced 2026">
     </div>
   </div>
 </section>
@@ -313,9 +317,9 @@
     <p class="section-sub" style="color:#9fb3cc;">Real feedback from families learning with Offtute.</p>
     <div class="t-grid">
       <div class="t-card">
-        <img src="refs/sunilgupta.png" alt="Parent">
-        <p>"We really appreciate how the classes are properly tracked. We receive regular updates on attendance, performance and improvement. Over the past few months, we can clearly see a steady learning curve in our child."</p>
-        <strong>— Sunil Gupta, Delhi</strong>
+        <img src="refs/mrmisri.png" alt="Parent">
+        <p>"Offtute played a huge role in my daughter Janisha’s journey to IIT Kharagpur. The monitored classes and constant tracking kept her consistent, and the tutors validated by IITians guided her exactly where she needed help. We couldn’t have asked for better support."</p>
+        <strong>— Mr. Misri, Father of Janisha Misri (IIT Kharagpur)</strong>
       </div>
       <div class="t-card">
         <img src="refs/AnitaPatil.jpeg" alt="Parent">
@@ -323,7 +327,7 @@
         <strong>— Anita Patil, Mumbai</strong>
       </div>
       <div class="t-card">
-        <img src="refs/AmanAg.jpg" alt="Parent">
+        <img src="refs/sunilgupta.png" alt="Parent">
         <p>"The learning is not random here. Every class is monitored, and progress is reviewed regularly. Because of this, our child’s basics have become much stronger and the improvement has been consistent."</p>
         <strong>— Aman Agarwal, Hyderabad</strong>
       </div>
